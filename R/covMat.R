@@ -14,6 +14,8 @@
 ##' @param ltrait the levels of the trait indexing the subsetting in
 ##' the stage 1 analyses
 ##'
+##' @importFrom stringr str_sort
+##'
 ##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
 ##' @export
 ##'

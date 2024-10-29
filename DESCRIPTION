@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "averbyla@avdataanalystics.com.au",
            comment = c(ORCID = "0000-0002-6935-454X"))
-Description: This package conatins a range of functions useful either before an analysis using asrel-R, or after fitting.
+Description: This package conatins a range of functions useful either before an analysis using asreml-R, or after fitting.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

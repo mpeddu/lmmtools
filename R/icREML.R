@@ -31,6 +31,8 @@
 ##' log-likelihood for each model
 ##' }
 ##'
+##' @importFrom stringr str_extract
+##'
 ##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
 ##' @export
 ##'
@@ -84,8 +86,8 @@ icREML <- function(fm, scale=1, logdet=FALSE) {
         ldc},
         Cfixed, which.X0, scale)
     vparam <- lapply(fm, function(el) summary(el)$varcomp)
-    q.0 <- lapply(vparam, function(el) sum(!(el$bound == "F" | el$bound == "B" | el$bound == "C")) + sum(el$bound[!is.na(str_extract(dimnames(el)[[1]], "cor"))] == "B"))
-    b.0 <- lapply(vparam, function(el) sum(el$bound == "F" | el$bound == "B") - sum(el$bound[!is.na(str_extract(dimnames(el)[[1]], "cor"))] == "B"))
+    q.0 <- lapply(vparam, function(el) sum(!(el$bound == "F" | el$bound == "B" | el$bound == "C")) + sum(el$bound[!is.na(stringr::str_extract(dimnames(el)[[1]], "cor"))] == "B"))
+    b.0 <- lapply(vparam, function(el) sum(el$bound == "F" | el$bound == "B") - sum(el$bound[!is.na(stringr::str_extract(dimnames(el)[[1]], "cor"))] == "B"))
     full.logl <- lapply(1:length(fm), function(el, logl, logdetC, p.0) {
         logl[[el]] - logdetC[[el]]/2}, logl, logdetC, p.0)
     aic <- unlist(lapply(1:length(fm), function(el, full.logl, p.0, q.0) {
