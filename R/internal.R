@@ -9,7 +9,7 @@
 ##' @param form2 a formula
 ##' @param LHS a logical scalar that indicates if there is a response in \code{form1}
 ##' and \code{form2}
-##' @param \code{...} additional arguments
+##' @param ... additional arguments
 ##' @return A single model formula
 ##' @export
 ##'
@@ -48,35 +48,8 @@ merge_formula <- function(form1, form2, LHS=TRUE, ...){
 }
 
 
-## An addition operator that works for formulae
-##
-##' An addition operator that works for formulae
-##'
-##' @title Addition operator for formulae
-##' @param e1 and e2 Two model formulae
-##' @return The sum of the two model formulae
-##' @export
-##'
-Ops.formula <- function(e1, e2){
-	FUN <- .Generic
-	if(FUN == '+'){
-		out <- merge(e1, e2)
-		environment(out) <- parent.frame()
-		return(out)
-	}
-	else stop('can not yet subtract formula objects')
-}
-
-##'
-##' igrep(patterns, x, ...)
-##' lgrep(patterns, x, ...)
-##' @title Internal splinetools function.
-##' @param patterns list of character vectors.
-##' @param x object for which patterns are sought.
-##' @param \ldots Additional parameters.
-##' @return The index of matches of patterns in x.
-##' @author Julian Taylor <julian.taylor@adelaide.edu.au>
-##' @export
+#' @rdname lgrep
+#' @export
 igrep <- function(patterns, x, ...){
     if(length(patterns) == 1)
         grep(patterns[[1]], x, ...)
@@ -90,19 +63,14 @@ igrep <- function(patterns, x, ...){
     }
 }
 
-##' lmmtools internal functions
-##'
-##' These functions are used internally in lmmtools.
-##'
-##' igrep(patterns, x, ...)
-##' lgrep(patterns, x, ...)
-##' @title Internal lmmtools function.
-##' @param patterns: list of character vectors.
-##' @param x: object for which patterns are sought.
-##' @param ... Additional parameters.
-##' @return The index of matches of the intersection of patterns in x.
-##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
-##' @export
+#' Search for patterns in lists
+#'
+#' @param patterns list of character vectors.
+#' @param x object for which patterns are sought.
+#' @param ... Additional parameters.
+#' @return \code{lgrep}: The index of matches of the intersection of patterns in \code{x}.
+#' \code{igrep}: The index of matches of the patterns in \code{x}.
+#' @export
 lgrep <- function(patterns, x, ...){
     if(length(patterns) == 1)
         grep(patterns[[1]], x, ...)

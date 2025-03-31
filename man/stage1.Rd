@@ -124,6 +124,3 @@ A function for stage 1 analyses of a two stage analysis
 A function that calls asreml for each component of a stage 1
 analysis.
 }
-\author{
-Ari Verbyla (averbyla at avdataanalytics.com.au)
-}

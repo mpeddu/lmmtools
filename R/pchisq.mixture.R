@@ -13,8 +13,10 @@
 ##' @param ntrait Number of traits or environments (or the size in
 ##' the underlying binomial distribution)
 ##' @return Probabilities for the specified quantiles are returned.
-##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
 ##' @export
+##'
+##' @importFrom stats dbinom pchisq
+##'
 ##' @examples
 ##' ## Simple example
 ##' pchisq.mixture(5, ntrait=4)

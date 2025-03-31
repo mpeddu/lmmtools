@@ -30,6 +30,16 @@ the original animal breeding approach.
 The functions are currently only available as \code{asreml} methods.
 }
 \author{
-\strong{Maintainer}: Ari Verbyla \email{averbyla@avdataanalystics.com.au} (\href{https://orcid.org/0000-0002-6935-454X}{ORCID})
+\strong{Maintainer}: Sam Rogers \email{sam.rogers@adelaide.edu.au} (\href{https://orcid.org/0000-0002-9145-052X}{ORCID})
+
+Authors:
+\itemize{
+  \item Ari Verbyla \email{averbyla@avdataanalystics.com.au} (\href{https://orcid.org/0000-0002-6935-454X}{ORCID})
+}
+
+Other contributors:
+\itemize{
+  \item Julian Taylor \email{julian.taylor@adelaide.edu.au} (\href{https://orcid.org/0000-0002-9145-052X}{ORCID}) [contributor]
+}
 
 }

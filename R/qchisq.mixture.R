@@ -22,8 +22,10 @@
 ##' @param maxiter Maximum number of iterations to carry out.  The
 ##' default is 10.
 ##' @return The quantiles for the specified probabilities are returned.
-##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
 ##' @export
+##'
+##' @importFrom stats dbinom qchisq dchisq
+##'
 ##' @examples
 ##' ## Simple examples
 ##' qchisq.mixture(0.95, ntrait=4)

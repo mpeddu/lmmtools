@@ -3,7 +3,7 @@
 require(asreml)
 require(lmmtools)
 require(ASExtras4)
-asreml.options(Cfixed=TRUE, extra=3, ai.sing=TRUE)
+asreml::asreml.options(Cfixed=TRUE, extra=3, ai.sing=TRUE)
 
 load("prepData.rda")
 

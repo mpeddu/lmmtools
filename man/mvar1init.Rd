@@ -17,13 +17,13 @@ mvar1init(
 call using \code{start.values=TRUE}}
 
 \item{init.var}{initial variances for each level of the factor
-given by the \code{Trait} argument with a names attribute that
+given by the \code{Traits} argument with a names attribute that
 matches \code{Traits}(see below)}
 
 \item{spatial}{a list of character strings of the model for the spatial
 effects}
 
-\item{Traits}{a vaector of character strings giving the name of the traits
+\item{Traits}{a vector of character strings giving the name of the traits
 that defines the mvar1 structure in addition to rows and columns}
 
 \item{n.trait}{the number of levels of the trait factor that
@@ -40,7 +40,4 @@ mvar1 initial value function: mvar1init
 \details{
 This function sets up starting values for the parameters
 of a multivariate autoregressive process of order 1
-}
-\author{
-Ari Verbyla (averbyla at avdataanalytics.com.au)
 }

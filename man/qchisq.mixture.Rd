@@ -43,6 +43,3 @@ qchisq.mixture(0.95, ntrait=4)
 qchisq.mixture(0.05, ntrait=4) ## fails
 
 }
-\author{
-Ari Verbyla (averbyla at avdataanalytics.com.au)
-}

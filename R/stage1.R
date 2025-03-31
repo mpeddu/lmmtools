@@ -78,7 +78,13 @@
 ##'     of variance parameters for all stage 1 models. \code{models}
 ##'     is a list of the fitted model objects from the stage 1 fits if
 ##'     \code{keep.models} has been set to \code{TRUE}.
-##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
+##'
+##' @importFrom methods as
+##' @importFrom stats formula reformulate
+##' @importFrom utils head str
+##' @importFrom gtools combinations
+##' @importFrom MASS ginv
+##'
 ##' @export
 ##'
 stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
@@ -86,11 +92,14 @@ stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
                    predGenetic = list(id = Genetic, classify=Genetic, rm=NULL),
                    predict.options = NULL, type="random", Trait="Trait", n.trait=1,
                    keep.models = FALSE, mvar1.init.obj =NULL, s1trace=FALSE, ...) {
+
+    stopifnot(requireNamespace("asreml"))
+
     call <- match.call()
-    asr.options <- asreml.options()
+    asr.options <- asreml::asreml.options()
     ltrait <- levels(data[, Trait])
     l.Trait <- length(ltrait)
-    asreml.options(Cfixed=TRUE, extra=3, ai.sing=TRUE)
+    asreml::asreml.options(Cfixed=TRUE, extra=3, ai.sing=TRUE)
     V <- W <- pred.lst <- vc <- mymodels <- list()
     sigma2 <- c()
     subnames <- character()
@@ -139,12 +148,12 @@ stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
                 which.fixed <- names(this.spec)[which.type == "fixed"]
                 add.fixed <- formula(paste0(as.character(fixed[[2]]), " ~ ",
                                             paste(which.fixed, collapse = " + ")))
-                afixed <- merge.formula(afixed, add.fixed)
+                afixed <- merge_formula(afixed, add.fixed)
             }
             if(any(which.type == "random")) {
                 which.random <- names(this.spec)[which.type == "random"]
                 add.random <- formula(paste0(" ~ ", paste(which.random, collapse = " + ")))
-                arandom <- merge.formula(arandom, add.random, LHS=FALSE)
+                arandom <- merge_formula(arandom, add.random, LHS=FALSE)
             }
         }
 ###################################
@@ -191,7 +200,7 @@ stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
                 if(s1trace) print(mycall$random)
                 sv <- eval(mycall)
                 gam <- sv$vparameters.table
-                gam <- mvar1init(gam, mvar1.init,obj$val[which.ii], Trait=Trait, n.trait = which.l)
+                gam <- mvar1init(gam, mvar1.init,obj$val[which.ii], Trait=Traits, n.trait = which.l)
                 if(s1trace) print(gam)
                 mycall$G.param <- gam
                 mycall$start.values <- FALSE
@@ -288,7 +297,7 @@ stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
         if(s1trace) print(dim(pev))
         if(s1trace) print(pev[1:4,1:4])
         if(s1trace) print(pev2[1:4,1:4])
-        pevi <- ginv(as.matrix(pev))
+        pevi <- MASS::ginv(as.matrix(pev))
         if(s1trace) print(pevi[1:4,1:4])
         Vt <- as.matrix(pev)
         nam <- nam[!which.omit]
@@ -338,7 +347,7 @@ stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
     pred.df$TG <- factor(1:dim(bdWt)[1])
     names(vc) <- names(mymodels) <- names(V)  <- names(W) <- subnames
     vcMat <- covMat(vc, which.comb, ltrait)
-    asreml.options(asr.options)
+    asreml::asreml.options(asr.options)
     out.list <- list(call = call, Vt = Vtfull.mat, bdVt = bdVt, bdWt = bdWt,
                    V = V, W = W, pred.df = pred.df, type = type, vc = vc,
                    vcMat = vcMat)

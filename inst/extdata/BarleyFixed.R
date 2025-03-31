@@ -9,7 +9,7 @@
 #########################################
 
 require(asreml)
-asreml.options(Cfixed=TRUE, extra=3)
+asreml::asreml.options(Cfixed=TRUE, extra=3)
 require(lattice)
 require(lmmtools)
 

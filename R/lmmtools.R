@@ -25,6 +25,11 @@
 #' }
 #' The functions are currently only available as \code{asreml} methods.
 #'
-#' @docType package
 #' @name lmmtools
-NULL
+"_PACKAGE"
+
+utils::globalVariables(c("PredictedValue", "low", "predicted.value",
+                         "up", "x", "y", "z", "color_blind","xmin",
+                         "xmax", "ymin", "ymax", "Row", "treatments",
+                         "stdres", "groups", ".data", "i", "mvar1.init",
+                         "obj", "bdiag"))

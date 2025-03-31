@@ -46,7 +46,7 @@ some options.
 
 ```text
 library(asreml)
-asreml.options(Cfixed=TRUE, extra=3)
+asreml::asreml.options(Cfixed=TRUE, extra=3)
 ```
 
 ##  The wheat data
@@ -458,7 +458,7 @@ begin by attaching the required libraries and setting options for `asreml`.
 ```text
 require(asreml)
 require(lmmtools)
-asreml.options(Cfixed=TRUE, extra=3, ai.sing=TRUE)
+asreml::asreml.options(Cfixed=TRUE, extra=3, ai.sing=TRUE)
 ```
 
 The data set can be accessed using

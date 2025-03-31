@@ -14,7 +14,7 @@ merge_formula(form1, form2, LHS = TRUE, ...)
 \item{LHS}{a logical scalar that indicates if there is a response in \code{form1}
 and \code{form2}}
 
-\item{\code{...}}{additional arguments}
+\item{...}{additional arguments}
 }
 \value{
 A single model formula

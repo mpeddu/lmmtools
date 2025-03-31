@@ -8,7 +8,7 @@
 ###########################
 
 require(asreml)
-asreml.options(Cfixed=TRUE)
+asreml::asreml.options(Cfixed=TRUE)
 
 data(WheatData, package="lmmtools")
 

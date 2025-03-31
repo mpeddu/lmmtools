@@ -1,8 +1,7 @@
-##' Generic function for Generalised Heritability for a single trial
+##' Generalised Heritability for a single trial
 ##'
 ##' Estimates the generalized heritability of one trial
-##' @title generic genherit1
-##' @param asr A model object.
+##' @param asr An \code{asreml} model object.
 ##' @param id A character string giving the name of the genetic effect.
 ##' @param only A character vector specifying which variables form the prediction model. The default value is \code{id}.
 ##' @param Gmat A genetic variance or inverse variance matrix.  It must have a
@@ -12,7 +11,8 @@
 ##' in which case the variance matrix is assumed to be the scaled identity.
 ##' @param ... Other arguments to \code{asreml} can be given.
 ##' @return The estimation of generalised heritability (a number between 0 and 1)
-##' @author Ari Verbyla \email{averbyla at avdataanalytics.com.au}
+##'
+##' @importFrom utils packageVersion
 ##'
 ##' @references
 ##' Oakey, H., Verbyla, A. P., Cullis, B. R., Wei, X., & Pitchford, W. S. (2007). Joint

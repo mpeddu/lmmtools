@@ -31,6 +31,3 @@ environments and probability of "success" equal to 0.5.
 pchisq.mixture(5, ntrait=4)
 
 }
-\author{
-Ari Verbyla (averbyla at avdataanalytics.com.au)
-}

@@ -37,6 +37,8 @@
 ##' @export
 ##'
 icREML <- function(fm, scale=1, logdet=FALSE) {
+    stopifnot(requireNamespace("asreml"))
+
     if(length(fm) == 0) stop(" The model list is empty\n")
     if(!is.list(fm)) stop(" Models need to be in a list\n")
     if(is.null(names(fm))) namesfm <- paste0("fm", 1:length(fm))
@@ -46,12 +48,12 @@ icREML <- function(fm, scale=1, logdet=FALSE) {
             cat(" Updating model ", names(fm)[el], " for likelihood calculation\n")
             myfm <- fm[[el]]
             if(packageVersion("asreml") >= "4.0") {
-                asr.opt <- asreml.options()
-                asreml.options(Cfixed = TRUE, gammaPar=FALSE)
-                out <- update(myfm, maxit=1)
-                asreml.options(asr.opt)
+                asr.opt <- asreml::asreml.options()
+                asreml::asreml.options(Cfixed = TRUE, gammaPar=FALSE)
+                out <- asreml::update(myfm, maxit=1)
+                asreml::asreml.options(asr.opt)
             }
-            else out <- update(myfm, maxit=1, Cfixed=TRUE)
+            else out <- asreml::update(myfm, maxit=1, Cfixed=TRUE)
         }
         else {
 ##            print(el)
