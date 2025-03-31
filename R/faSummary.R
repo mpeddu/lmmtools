@@ -13,7 +13,6 @@
 ##' @param id a character string giving the name of the genotype/variety factor.  Default is
 ##' "id"
 ##' @return a data frame with various statistics and diagnostics.
-##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
 ##' @export
 ##'
 faSummary <- function(fm, data, Trait, id = "id") {

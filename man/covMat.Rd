@@ -22,6 +22,3 @@ Collate all variance parameters in a stage 1 analysis
 \details{
 Stage 1 analysis variance parameters
 }
-\author{
-Ari Verbyla (averbyla at avdataanalytics.com.au)
-}

@@ -20,7 +20,7 @@ genherit1.asreml <- function(asr, id = 'Genotype', only = NULL, Gmat = NULL, ...
     my.vcov <- mypred$vcov
     if(is.null(Gmat)) {
 ##################  version 3 might require summary(asr)$varcomp[which.vc,2]
-        h2 <- 1- sum(diag(my.vcov))/(summary(asr)$varcomp[which.vc,1]*nrow(my.vcov))
+        h2 <- 1- sum(diag(my.vcov))/(asreml::summary(asr)$varcomp[which.vc,1]*nrow(my.vcov))
     }  else {
         if(is.null(attr(Gmat, "INVERSE"))) stop('\n Gmat must have an "INVERSE" attribute\n')
         if(!attr(Gmat, "INVERSE")) Gmat <- MASS::ginv(Gmat)

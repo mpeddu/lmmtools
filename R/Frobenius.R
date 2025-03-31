@@ -6,7 +6,6 @@
 ##' @title Frobenius Norm
 ##' @param D a matrix
 ##' @return the Frobenius norm, a scalar
-##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
 ##' @export
 ##'
 Frobenius <- function(D) {

@@ -9,7 +9,6 @@
 ##' @param mat A symmetric matrix.
 ##' @return A data frame with row, column and values from the lower triangle
 ##' of the matrix \code{mat}
-##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
 ##' @export
 ##'
 mat2df  <- function(mat) {

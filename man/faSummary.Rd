@@ -28,6 +28,3 @@ For a list of models from a diagonal form (always assumed first in the list),
 to a sequential set of factor analysis (FA) models, tabulate various statistics
 to provide guidance on model choice of an FA model.
 }
-\author{
-Ari Verbyla (averbyla at avdataanalytics.com.au)
-}

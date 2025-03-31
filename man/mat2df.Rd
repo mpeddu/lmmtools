@@ -19,6 +19,3 @@ mat2df
 \details{
 Convert a symmetric matrix to a three column (matrix) sparse form
 }
-\author{
-Ari Verbyla (averbyla at avdataanalytics.com.au)
-}

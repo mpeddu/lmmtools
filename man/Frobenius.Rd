@@ -18,6 +18,3 @@ Frobenius norm
 \details{
 This function calculates a distance measure using the Frobenius norm
 }
-\author{
-Ari Verbyla (averbyla at avdataanalytics.com.au)
-}

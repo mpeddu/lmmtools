@@ -42,6 +42,3 @@ This function calculates the AIC and BIC for each fitted asreml model in a
 list.  Options are set and each model is updated.  The elements required
 for the AIC and BIC are then calculated.
 }
-\author{
-Ari Verbyla (averbyla at avdataanalytics.com.au)
-}

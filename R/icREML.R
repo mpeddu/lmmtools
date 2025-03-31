@@ -33,7 +33,6 @@
 ##'
 ##' @importFrom stringr str_extract
 ##'
-##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
 ##' @export
 ##'
 icREML <- function(fm, scale=1, logdet=FALSE) {

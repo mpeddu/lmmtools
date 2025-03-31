@@ -16,7 +16,6 @@
 ##'
 ##' @importFrom stringr str_sort
 ##'
-##' @author Ari Verbyla (averbyla at avdataanalytics.com.au)
 ##' @export
 ##'
 covMat  <- function(vc, which.comb, ltrait) {
