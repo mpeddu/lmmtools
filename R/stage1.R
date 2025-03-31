@@ -200,7 +200,7 @@ stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
                 if(s1trace) print(mycall$random)
                 sv <- eval(mycall)
                 gam <- sv$vparameters.table
-                gam <- mvar1init(gam, mvar1.init,obj$val[which.ii], Trait=Traits, n.trait = which.l)
+                gam <- mvar1init(gam, mvar1.init,obj$val[which.ii], Traits = Traits, n.trait = which.l)
                 if(s1trace) print(gam)
                 mycall$G.param <- gam
                 mycall$start.values <- FALSE
