@@ -1,31 +1,34 @@
 Package: lmmtools
 Title: A Set of Tools for Linear Mixed Models
 Version: 1.0.0
-Authors@R: 
-    c(person(given = "Ari",
-           family = "Verbyla",
-           role = c("aut"),
-           email = "averbyla@avdataanalystics.com.au",
+Authors@R: c(
+    person("Ari", "Verbyla", , "averbyla@avdataanalystics.com.au", role = "aut",
            comment = c(ORCID = "0000-0002-6935-454X")),
-    person(given = "Julian",
-           family = "Taylor",
-           email = "julian.taylor@adelaide.edu.au",
-           role = c("ctb"),
+    person("Julian", "Taylor", , "julian.taylor@adelaide.edu.au", role = "ctb",
            comment = c(ORCID = "0000-0002-9145-052X")),
-    person(given = "Sam",
-           family = "Rogers",
-           email = "sam.rogers@adelaide.edu.au",
-           role = c("cre"),
-           comment = c(ORCID = "0000-0002-9145-052X")))
-Description: This package conatins a range of functions useful either before an analysis using asreml-R, or after fitting.
+    person("Sam", "Rogers", , "sam.rogers@adelaide.edu.au", role = "cre",
+           comment = c(ORCID = "0000-0002-9145-052X"))
+  )
+Description: This package conatins a range of functions useful either
+    before an analysis using asreml-R, or after fitting.
 License: GPL-3
+Depends: 
+    gtools,
+    MASS,
+    R (>= 4.0.0),
+    stringr
+Imports: 
+    methods
+Suggests: 
+    ASExtras4,
+    knitr,
+    prettydoc,
+    rmarkdown
+VignetteBuilder: 
+    knitr
 Encoding: UTF-8
 LazyData: true
-Imports: methods
-Depends: R (>= 4.0.0), MASS, gtools, stringr
+NeedsCompilation: no
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Suggests: ASExtras4, prettydoc, knitr, rmarkdown
 SystemRequirements: asreml-R 4.x
-VignetteBuilder: knitr
-NeedsCompilation: no
