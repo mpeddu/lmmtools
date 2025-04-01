@@ -207,7 +207,7 @@ stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
             }
         }
         asm <- eval(mycall)
-        summ <- summary(asm)$varcomp
+        summ <- asreml::summary(asm)$varcomp
         mymodels[[ii]] <- asm
         if(s1trace) print(summ)
         frhs <- strsplit(deparse(afixed[[3]]), split=" \\+ ")[[1]]
@@ -246,7 +246,7 @@ stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
             asm <- eval(mycall) ##update(asm, fixed. = ffixed, random. = rrandom, G.param=gam, R.param=gam)
         }
         sigma2[ii] <- asm$sigma2
-        summ <- summary(asm)$varcomp
+        summ <- asreml::summary(asm)$varcomp
         if(s1trace) print(summ)
         uR <- grep("units!R", dimnames(summ)[[1]])
         if(length(uR) != 0) {
