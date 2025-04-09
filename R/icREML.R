@@ -49,10 +49,10 @@ icREML <- function(fm, scale=1, logdet=FALSE) {
             if(packageVersion("asreml") >= "4.0") {
                 asr.opt <- asreml::asreml.options()
                 asreml::asreml.options(Cfixed = TRUE, gammaPar=FALSE)
-                out <- asreml::update(myfm, maxit=1)
+                out <- asreml::update.asreml(myfm, maxit=1)
                 asreml::asreml.options(asr.opt)
             }
-            else out <- asreml::update(myfm, maxit=1, Cfixed=TRUE)
+            else out <- asreml::update.asreml(myfm, maxit=1, Cfixed=TRUE)
         }
         else {
 ##            print(el)
@@ -61,14 +61,14 @@ icREML <- function(fm, scale=1, logdet=FALSE) {
         }
         out}, fm=fm)
     logl <- lapply(fm, function(el) el$loglik)
-    summ <- lapply(fm, function(el) asreml::summary(el, coef=TRUE)$coef.fixed)
+    summ <- lapply(fm, function(el) asreml::summary.asreml(el, coef=TRUE)$coef.fixed)
     which.X0 <- lapply(summ, function(el) !is.na(el[, "z.ratio"]))
     p.0 <- lapply(which.X0, function(el) sum(el))
     Cfixed <- lapply(fm, function(el) {
         if(!is.null(dim(el))) {
-#            ord <- rownames(summary(el, coef=TRUE)$coef.fixed)
+#            ord <- rownames(summary.asreml(el, coef=TRUE)$coef.fixed)
 #            el$Cfixed <- el$Cfixed[ord, ord, drop=FALSE]
-            summv <- asreml::summary(el)$varcomp
+            summv <- asreml::summary.asreml(el)$varcomp
             uR <- grep("units", dimnames(summv)[[1]])
             if(length(uR) != 0) {
                 if (summv$bound[uR] == "F")
@@ -86,7 +86,7 @@ icREML <- function(fm, scale=1, logdet=FALSE) {
         else ldc <- log(scale*Cfixed[[el]])
         ldc},
         Cfixed, which.X0, scale)
-    vparam <- lapply(fm, function(el) asreml::summary(el)$varcomp)
+    vparam <- lapply(fm, function(el) asreml::summary.asreml(el)$varcomp)
     q.0 <- lapply(vparam, function(el) sum(!(el$bound == "F" | el$bound == "B" | el$bound == "C")) + sum(el$bound[!is.na(stringr::str_extract(dimnames(el)[[1]], "cor"))] == "B"))
     b.0 <- lapply(vparam, function(el) sum(el$bound == "F" | el$bound == "B") - sum(el$bound[!is.na(stringr::str_extract(dimnames(el)[[1]], "cor"))] == "B"))
     full.logl <- lapply(1:length(fm), function(el, logl, logdetC, p.0) {
