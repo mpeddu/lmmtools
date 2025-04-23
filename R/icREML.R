@@ -49,10 +49,10 @@ icREML <- function(fm, scale=1, logdet=FALSE) {
             if(packageVersion("asreml") >= "4.0") {
                 asr.opt <- asreml::asreml.options()
                 asreml::asreml.options(Cfixed = TRUE, gammaPar=FALSE)
-                out <- asreml::update(myfm, maxit=1)
+                out <- asreml::update.asreml(myfm, maxit=1)
                 asreml::asreml.options(asr.opt)
             }
-            else out <- asreml::update(myfm, maxit=1, Cfixed=TRUE)
+            else out <- asreml::update.asreml(myfm, maxit=1, Cfixed=TRUE)
         }
         else {
 ##            print(el)
@@ -66,7 +66,7 @@ icREML <- function(fm, scale=1, logdet=FALSE) {
     p.0 <- lapply(which.X0, function(el) sum(el))
     Cfixed <- lapply(fm, function(el) {
         if(!is.null(dim(el))) {
-#            ord <- rownames(summary(el, coef=TRUE)$coef.fixed)
+#            ord <- rownames(summary.asreml(el, coef=TRUE)$coef.fixed)
 #            el$Cfixed <- el$Cfixed[ord, ord, drop=FALSE]
             summv <- asreml::summary.asreml(el)$varcomp
             uR <- grep("units", dimnames(summv)[[1]])
