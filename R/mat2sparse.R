@@ -1,16 +1,11 @@
-##
-## Take a symmetric matrix and form a three column (matrix) sparse form
-##
 ##' mat2sparse
 ##'
 ##' Convert a symmetric matrix to a three column (matrix) sparse form
 ##'
-##' @title Converson of a symmetric matrix to a three column (matrix) sparse form
 ##' @param mat A symmetric matrix.
 ##' @return A matrix with row, column and values from the lower triangle
 ##' of the matrix \code{mat}, which is row-major order required by
 ##' \code{asreml}.
-##' @author Ari Verbyla (at avdataanalytics.com.au)
 ##' @export
 ##'
 mat2sparse  <- function(mat) {

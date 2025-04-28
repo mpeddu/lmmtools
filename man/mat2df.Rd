@@ -2,7 +2,7 @@
 % Please edit documentation in R/mat2df.R
 \name{mat2df}
 \alias{mat2df}
-\title{Conversion of a symmetric matrix to a three column (matrix) sparse form}
+\title{mat2df}
 \usage{
 mat2df(mat)
 }
@@ -14,8 +14,5 @@ A data frame with row, column and values from the lower triangle
 of the matrix \code{mat}
 }
 \description{
-mat2df
-}
-\details{
 Convert a symmetric matrix to a three column (matrix) sparse form
 }

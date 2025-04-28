@@ -5,7 +5,6 @@
 ##'
 ##' Convert a symmetric matrix to a three column (matrix) sparse form
 ##'
-##' @title Conversion of a symmetric matrix to a three column (matrix) sparse form
 ##' @param mat A symmetric matrix.
 ##' @return A data frame with row, column and values from the lower triangle
 ##' of the matrix \code{mat}

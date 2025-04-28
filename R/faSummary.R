@@ -26,7 +26,7 @@ faSummary <- function(fm, data, Trait, id = "id") {
     n <- dim(data)[1]
     loglik <- unlist(lapply(fm, function(el) el$loglik))
     lrt <- c(NA, 2*diff(loglik))
-    summ.bnd <- lapply(fm, function(el) asreml::summary(el)$varcomp[, "bound"])
+    summ.bnd <- lapply(fm, function(el) asreml::summary.asreml(el)$varcomp[, "bound"])
     np <- unlist(lapply(summ.bnd, function(el) sum(el != "B" & el != "F")))
     lrt.df  <- c(NA, diff(np))
     lrt.pval <- c(NA, 1-pchisq(lrt[-1], df=lrt.df[-1]))

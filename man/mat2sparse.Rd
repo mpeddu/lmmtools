@@ -2,7 +2,7 @@
 % Please edit documentation in R/mat2sparse.R
 \name{mat2sparse}
 \alias{mat2sparse}
-\title{Converson of a symmetric matrix to a three column (matrix) sparse form}
+\title{mat2sparse}
 \usage{
 mat2sparse(mat)
 }
@@ -15,11 +15,5 @@ of the matrix \code{mat}, which is row-major order required by
 \code{asreml}.
 }
 \description{
-mat2sparse
-}
-\details{
 Convert a symmetric matrix to a three column (matrix) sparse form
-}
-\author{
-Ari Verbyla (at avdataanalytics.com.au)
 }

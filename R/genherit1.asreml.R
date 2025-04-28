@@ -11,16 +11,16 @@ genherit1.asreml <- function(asr, id = 'Genotype', only = NULL, Gmat = NULL, ...
         only <- id
     }
     if(packageVersion("asreml") == "3.0") {
-        mypred <- asreml::predict(asr, classify=id, maxiter=1, only=only, vcov=TRUE, ...)$predictions
+        mypred <- asreml::predict.asreml(asr, classify=id, maxiter=1, only=only, vcov=TRUE, ...)$predictions
         which.vc <- grep(id, names(asr$gammas))
     } else {
-        mypred <- asreml::predict(asr, classify=id, maxit=1, only=only, vcov=TRUE, ...)
+        mypred <- asreml::predict.asreml(asr, classify=id, maxit=1, only=only, vcov=TRUE, ...)
         which.vc <- grep(id, names(asr$vparameters), fixed=TRUE)
     }
     my.vcov <- mypred$vcov
     if(is.null(Gmat)) {
 ##################  version 3 might require summary(asr)$varcomp[which.vc,2]
-        h2 <- 1- sum(diag(my.vcov))/(asreml::summary(asr)$varcomp[which.vc,1]*nrow(my.vcov))
+        h2 <- 1- sum(diag(my.vcov))/(asreml::summary.asreml(asr)$varcomp[which.vc,1]*nrow(my.vcov))
     }  else {
         if(is.null(attr(Gmat, "INVERSE"))) stop('\n Gmat must have an "INVERSE" attribute\n')
         if(!attr(Gmat, "INVERSE")) Gmat <- MASS::ginv(Gmat)
