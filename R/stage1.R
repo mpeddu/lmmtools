@@ -164,7 +164,7 @@ stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
             print(arandom)
         }
         mycall <- list()
-        mycall[[1]] <- as.name("asreml::asreml")
+        mycall[[1]] <- str2lang("asreml::asreml")
         mycall$fixed <- afixed
         mycall$random <- arandom
         mycall$residual <- residual
@@ -257,7 +257,7 @@ stage1 <- function(fixed, random, data, residual=NULL, sparse=NULL, family=NULL,
 ##        pred <- predict(asm, classify = predGen,
 ##                        vcov=TRUE, maxit=1,  ...)
         mypred <- list()
-        mypred[[1]] <- as.name("asreml::predict.asreml")
+        mypred[[1]] <- str2lang("asreml::predict.asreml")
         mypred$object <- quote(asm)
         mypred$classify <- predGenetic$classify
         mypred$vcov <- TRUE

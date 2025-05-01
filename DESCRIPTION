@@ -24,6 +24,8 @@ Suggests:
     knitr,
     prettydoc,
     rmarkdown
+Enhances:
+    asreml
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
