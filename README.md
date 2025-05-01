@@ -10,17 +10,14 @@
 [![Project Status: WIP – Initial development is in progress, but there
 has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-<!-- [![Codecov test coverage](https://codecov.io/gh/biometryhub/biometryassist/branch/main/graph/badge.svg)](https://app.codecov.io/gh/biometryhub/biometryassist?branch=main) -->
-<!-- [![R build status](https://github.com/biometryhub/biometryassist/workflows/R-CMD-check/badge.svg)](https://github.com/biometryhub/biometryassist/actions) -->
 [![minimal R
-version](https://img.shields.io/badge/R%3E%3D-3.5.0-6666ff.svg)](https://cran.r-project.org/)
-[![packageversion](https://img.shields.io/badge/Package%20version-1.0.0-orange.svg?style=flat-square)](https://github.com/biometryhub/biometryassist/commits/main)
+version](https://img.shields.io/badge/R%3E%3D-4.0.0-6666ff.svg)](https://cran.r-project.org/)
+[![packageversion](https://img.shields.io/badge/Package%20version-1.0.0-orange.svg?style=flat-square)](https://github.com/biometryhub/lmmtools/commits/main)
 [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](https://choosealicense.com/licenses/mit/)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbiometryhub%2Flmmtools&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 <!-- badges: end -->
 
-This package conatins a range of functions useful either before an
-analysis using asreml-R, or after fitting.
+This package contains a range of functions useful either before an
+analysis using `ASReml-R`, or after fitting.
 
 ------------------------------------------------------------------------
 
@@ -33,8 +30,8 @@ analysis using asreml-R, or after fitting.
 Use the following code to install the latest version of this package.
 
 ``` r
-if(!require("remotes")) install.packages("remotes") 
-remotes::install_github("biometryhub/lmmtools")
+if(!require("pak")) install.packages("pak") 
+pak::pak("biometryhub/lmmtools")
 ```
 
 ## Using the package
@@ -44,6 +41,22 @@ Load the package and start using it with:
 ``` r
 library(lmmtools)
 ```
+
+## Note: Licencing ASReml-R
+
+ASReml-R is a proprietary R package which is sold and supported by [VSN
+International](https://vsni.co.uk/), and requires a licence code to
+activate and run. This licence code is checked for validity via the
+internet, and may require opening some network ports on your computer to
+successfully activate. Further information about the licence
+requirements can be obtained from [VSNi
+directly](https://vsni.co.uk/licensing/).
+
+The developers of lmmtools do not provide support for `ASReml-R` via way
+of bug reports or software patches, and any problems with the ASReml-R
+software should be directed to [VSN International](https://vsni.co.uk/).
+
+## Citing lmmtools
 
 If you find this package useful, please cite it! Type
 `citation("lmmtools")` on the R console to find out how.
